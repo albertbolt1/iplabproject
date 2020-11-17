@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<table class="table">
+                      
+                        <tbody>
+                        {% for i in b %}
+                            <tr>
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.magnitude }}</td>
+                                <td>{{ i.is_hazardous }}</td>
+                          
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+           </table>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table class="table">
+                      
+                        <tbody>
+                        {% for i in data %}
+                            <tr>
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.year }}</td>
+                                <td>{{ i.geolocation.latitude }}</td>
+                                <td>{{ i.geolocation.longitude }}</td>
+                          
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+           </table>
+
+
+</body>
+</html>
