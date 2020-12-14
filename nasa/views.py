@@ -27,13 +27,15 @@ def pictureoftheday(request):
 
 	response=requests.get(URL,PARAMS)
 	data = response.json()
-	displaydate=data['date']
-	picture=data['url']
-	explanation=data['explanation']
-
-
-
-	return render(request,'nasa/pictureoftheday.html',{'displaydate':displaydate,'picture':picture,'explanation':explanation})
+	print(data)
+	code=data['code']
+	if(code==404):
+		return render(request,'nasa/nasapictureofthedayfail.html')
+	else:
+		displaydate=data['date']
+		picture=data['url']
+		explanation=data['explanation']
+		return render(request,'nasa/pictureoftheday.html',{'displaydate':displaydate,'picture':picture,'explanation':explanation})
 
 
 

@@ -1,13 +1,136 @@
+  
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet'>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color:#000000;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+.date{
+
+  text-align: center;
+  font-family: 'Anton';font-size: 32px;
+}
+.image{
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+}
+.text{
+  font-family: 'Castoro', serif;
+}
+
+</style> 
+  <title></title>
 </head>
 <body>
+
+
+
+<div class="header">
+  <h3>Website which uses NASA's Open API's</h3>
+</div>
+
+<div id="navbar">
+  <a class="active" href="{% url 'nasa:optionspage'%}">Home</a>
+
+  <a href="{% url 'nasa:pictureoftheday'%}">Picture of the Day</a>
+
+  <a href="{% url 'nasa:nearearthobjects'%}">Near Earth Objects</a>
+
+   <a href="{% url 'nasa:allmeteorlandings'%}">Meteor Landiings in Past</a>
+
+  <a href="{% url 'nasa:getlocnearmeteor'%}">Meteor Landings near You</a>
+
+   <a href="{% url 'nasa:marsroverpics'%}">Mars ROVER Images</a>
+ 
+</div>
+
+
+<div class="date">
+  <br>
 {{displaydate}}
+</div>
 <br>
+<div class="image">
 <img src={{picture}}>
+</div>
 <br>
+
+<div class="text">
 {{explanation}}
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+
 </body>
 </html>
