@@ -12,5 +12,6 @@ urlpatterns = [
     path('fifth',views.marsroverpics,name='marsroverpics'),
     path('nearearthobjectssendinfo',views.nearearthobjectsdisplay,name='nearearthobjectsdisplay'),
     path('getlocationgivedata',views.getlocationgivedata,name='getlocationgivedata'),
-    path('roverpicsdisplay',views.getroverpics,name='roverpicsdisplay')
+    path('roverpicsdisplay',views.getroverpics,name='roverpicsdisplay'),
+    path('pollutionmap',views.pollutionmap,name='lightpollutionmap')
 ]

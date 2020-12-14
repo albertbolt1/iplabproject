@@ -27,15 +27,21 @@ def pictureoftheday(request):
 
 	response=requests.get(URL,PARAMS)
 	data = response.json()
-	print(data)
-	code=data['code']
-	if(code==404):
-		return render(request,'nasa/nasapictureofthedayfail.html')
-	else:
+	if(len(data)==6):
 		displaydate=data['date']
 		picture=data['url']
 		explanation=data['explanation']
-		return render(request,'nasa/pictureoftheday.html',{'displaydate':displaydate,'picture':picture,'explanation':explanation})
+	else:
+		datetimenow=datetime.datetime.now()-datetime.timedelta(days=1)
+		day=datetimenow.strftime("%Y-%m-%d")
+		PARAMS={'date':day,'hd':True,'api_key':'krjUmgl08IstU9xpSasgbqXuAkJMagbYz3Mve9U7'}
+		response=requests.get(URL,PARAMS)
+		data = response.json()
+		displaydate=data['date']
+		picture=data['url']
+		explanation=data['explanation']
+
+	return render(request,'nasa/pictureoftheday.html',{'displaydate':displaydate,'picture':picture,'explanation':explanation})
 
 
 
@@ -123,3 +129,8 @@ def getroverpics(request):
 		data=response.json()
 		fulldata=data['photos']
 		return render(request,'nasa/getroverpics.html',{'data':fulldata})
+
+
+
+def pollutionmap(request):
+	return render(request,'nasa/lightpollutionmap.html')

@@ -66,13 +66,13 @@ body {
 }
 .image{
  display: block;
-  margin-left: auto;
+  margin-left: 10%;
   margin-right: auto;
-  width: 50%;
 
 }
 .text{
   font-family: 'Castoro', serif;
+  font-size: 20px;
 }
 
 </style> 
@@ -98,6 +98,8 @@ body {
   <a href="{% url 'nasa:getlocnearmeteor'%}">Meteor Landings near You</a>
 
    <a href="{% url 'nasa:marsroverpics'%}">Mars ROVER Images</a>
+
+   <a href="{% url 'nasa:lightpollutionmap'%}">Bortle scale</a>
  
 </div>
 
@@ -108,7 +110,7 @@ body {
 </div>
 <br>
 <div class="image">
-<img src={{picture}}>
+<iframe width="960" height="540" src={{picture}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <br>
 
