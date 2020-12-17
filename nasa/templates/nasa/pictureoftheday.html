@@ -9,6 +9,8 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 body {
   margin: 0;
   font-size: 28px;
@@ -19,6 +21,7 @@ body {
   background-color: #f1f1f1;
   padding: 30px;
   text-align: center;
+  font-family: 'Bungee', cursive;
 }
 
 #navbar {
@@ -62,7 +65,7 @@ body {
 .date{
 
   text-align: center;
-  font-family: 'Anton';font-size: 32px;
+  font-family: 'Cousine', monospace;
 }
 .image{
  display: block;
@@ -71,10 +74,24 @@ body {
 
 }
 .text{
-  font-family: 'Castoro', serif;
+  font-family: 'Cousine', monospace;
   font-size: 20px;
 }
 
+
+
+.image
+{
+   display: block;
+
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 50px;
+   width: 50%;
+   
+}
+
+}
 </style> 
   <title></title>
 </head>
@@ -104,19 +121,26 @@ body {
 </div>
 
 
+
+
+<div class="image">
+<iframe width="960" height="540" src={{picture}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 <div class="date">
   <br>
 {{displaydate}}
-</div>
-<br>
-<div class="image">
-<iframe width="960" height="540" src={{picture}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <br>
 
 <div class="text">
 {{explanation}}
 </div>
+<br>
+<br>
+
+<br>
+
+
 
 <script>
 window.onscroll = function() {myFunction()};
