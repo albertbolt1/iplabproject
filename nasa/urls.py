@@ -13,5 +13,6 @@ urlpatterns = [
     path('nearearthobjectssendinfo',views.nearearthobjectsdisplay,name='nearearthobjectsdisplay'),
     path('getlocationgivedata',views.getlocationgivedata,name='getlocationgivedata'),
     path('roverpicsdisplay',views.getroverpics,name='roverpicsdisplay'),
-    path('pollutionmap',views.pollutionmap,name='lightpollutionmap')
+    path('pollutionmap',views.pollutionmap,name='lightpollutionmap'),
+
 ]

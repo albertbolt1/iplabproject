@@ -6,6 +6,7 @@ import datetime
 import json
 from .forms import NearEarthObjects,GetLocation,GetDate
 from . import nearbody
+import time
 
 def home(request):
 
@@ -124,10 +125,23 @@ def getroverpics(request):
 	if request.method=='POST':
 		data=request.POST
 		date=data['date']
+		datetimenow=datetime.datetime.now()
+		newdate1 = time.strptime(date, "%Y-%m-%d")
+		newdate2=datetimenow.strftime("%Y-%m-%d")
+		newdate2=time.strptime(newdate2, "%Y-%m-%d")
+		if(newdate1>newdate2):
+			return render(request,'nasa/futuredatanotavailable.html')
+
+
+
 		url="https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date="+date+"&api_key=krjUmgl08IstU9xpSasgbqXuAkJMagbYz3Mve9U7"
 		response=requests.get(url)
 		data=response.json()
 		fulldata=data['photos']
+
+		if(len(fulldata)==0):
+			return render(request,'nasa/nopicsfortoday.html')
+
 		return render(request,'nasa/getroverpics.html',{'data':fulldata})
 
 
