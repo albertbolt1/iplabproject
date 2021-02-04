@@ -268,6 +268,8 @@ td.text-right {
   text-align: right;
 }
 
+
+
 </style>
 
 	<title></title>
@@ -310,13 +312,20 @@ function myFunction() {
   }
 }
 </script>
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 <div class="centre">
 <table class="table">
                       
                         <tbody>
                            <tr>
                            <th>Name</th>
-                           <th>Magnitude</th>
+                           <th>Magnitude(in KM's)</th>
                            <th>Hazardous</th>
                            </tr>
                         {% for i in b %}
